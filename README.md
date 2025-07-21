@@ -49,3 +49,17 @@ This project is a **secure, blockchain-powered online voting system** that integ
 2. **Authentication**: Before voting, user verifies identity by face at `/recognize`[2][6].
 3. **Voting**: Authenticated user selects a candidate; backend ensures they haven't voted before and appends their vote in a new blockchain block[6].
 4. **Results**: Votes counted live from blockchain data, displayed on `/results`[5][6].
+
+
+## Setup & Usage
+
+1. **Installation**
+pip install flask opencv-python numpy scikit-learn requests
+
+2. **Start the Blockchain Voting Server**
+python voting_server.py
+
+3. **Start the Flask Web Client**
+python client.py
+
+4. Open [http://localhost:5000](http://localhost:5000) to use the application.

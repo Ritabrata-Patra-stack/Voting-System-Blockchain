@@ -53,13 +53,13 @@ This project is a **secure, blockchain-powered online voting system** that integ
 
 ## Setup & Usage
 
-1. **Installation**
+1. **Installation:**
      pip install flask opencv-python numpy scikit-learn requests
 
-2. **Start the Blockchain Voting Server**
+2. **Start the Blockchain Voting Server:**
     python voting_server.py
 
-3. **Start the Flask Web Client**
+3. **Start the Flask Web Client:**
     python client.py
 
 4. Open [http://localhost:5000](http://localhost:5000) to use the application.

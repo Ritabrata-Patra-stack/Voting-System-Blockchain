@@ -1,75 +1,51 @@
-Voting System with Facial Recognition and Blockchain
-Overview
-This project is a secure electronic voting system that uses facial recognition for voter authentication and blockchain technology to ensure vote integrity. The system provides a user-friendly web interface for registration, authentication, voting, and viewing live results.
+# Blockchain-based Face Recognition Voting System
 
-Features
-Facial recognition-based voter authentication using OpenCV and KNN
+## Overview
 
-Blockchain-backed vote recording for tamper resistance and transparency
+This project is a **secure, blockchain-powered online voting system** that integrates **facial recognition authentication** to uphold election integrity. The platform ensures that only registered users can vote, prevents double voting, and guarantees that all votes are transparently recorded on an immutable blockchain ledger.
 
-Voter registration (with facial data capture)
+## Features
 
-Secure vote casting; prevents double voting
+- **User Registration**
+  - Voters register using a unique Voter ID and **facial data** for biometric authentication.
+  - Registration is handled via a frontend form, with facial data captured, encoded, and stored locally for privacy and verification[2][6].
 
-Live results dashboard
+- **Facial Authentication**
+  - Uses computer vision with OpenCV and a K-Nearest Neighbors (KNN) classifier to recognize faces during login and voting, ensuring a single person can only vote once[2][6].
 
-Web frontend built with Flask and HTML
+- **Voting Process**
+  - Authenticated users select their candidate.
+  - Vote transactions are validated and incorporated into a custom **blockchain**, securing vote history from tampering or duplication[6].
 
-Directory Structure
-File/Folders	Purpose
-client.py	Frontend Flask server for user interactions
-voting_server.py	Backend server: facial recognition & blockchain logic
-facial_module.py	Handles facial recognition, registration, and voting logic
-templates/	HTML templates (index.html, register.html, results.html)
-data/	Stores registered face and voter data (pickles)
-Votes.csv	Tracks who has voted
-Requirements
-Python 3.x
+- **Blockchain Ledger**
+  - Custom blockchain implementation with proof-of-work mining to validate and link blocks containing vote records[6].
+  - Chain integrity can be checked, and any tampering is immediately detected and flagged by the backend[6].
 
-Flask
+- **Results**
+  - Voting results are aggregated live from the blockchain and presented in the UI for transparency[5][6].
 
-OpenCV
+- **Web Application**
+  - User-friendly web interface built with Flask and HTML templates, covering registration, voting, and result viewing[1][3][4][5].
+  
+- **API Endpoints**
+  - `/register`: Face-based voter registration
+  - `/recognize`: Facial recognition and authentication
+  - `/vote`: Cast vote (ensures no double voting)
+  - `/results`: View live election results from the blockchain
+  - Blockchain validation and test endpoints[6]
 
-scikit-learn
+## Technology Stack
 
-Requests
+- **Python 3**
+- **Flask** (Backend & Frontend serving)
+- **OpenCV, numpy** (Facial recognition)
+- **scikit-learn** (KNN classifier)
+- **HTML/CSS** (Web templates)
+- **Custom Blockchain** (Python-based)
 
-NumPy
+## How It Works
 
-Install dependencies:
-
-bash
-pip install flask opencv-python scikit-learn requests numpy
-Usage
-Start the backend server:
-
-bash
-python voting_server.py
-Start the frontend server:
-
-bash
-python client.py
-Open your browser:
-Go to http://127.0.0.1:5000/
-
-Typical Workflow:
-
-Register: Click “Register”, enter voter ID, and let webcam capture facial data.
-
-Authenticate and Vote: On home page, start face verification, select a candidate, and cast vote.
-
-View Results: Click “View Live Results” to monitor current standings.
-
-Security
-One vote per person: Enforced by unique voter ID and face recognition.
-
-Tamper-evident log: The blockchain backend ensures recorded votes are immutable and verifiable.
-
-Vote privacy: Only vote choices are stored on blockchain (not face data).
-
-Notes
-Ensure you have a webcam connected for facial verification.
-
-For demonstration, both servers run locally on different ports (5000 for frontend, 5001 for backend).
-
-For production, securely handle face data and harden network security.
+1. **Registration**: Voter submits Voter ID and facial data at `/register`[2][6].
+2. **Authentication**: Before voting, user verifies identity by face at `/recognize`[2][6].
+3. **Voting**: Authenticated user selects a candidate; backend ensures they haven't voted before and appends their vote in a new blockchain block[6].
+4. **Results**: Votes counted live from blockchain data, displayed on `/results`[5][6].

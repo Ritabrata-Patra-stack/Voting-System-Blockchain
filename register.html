@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voter Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #28a745;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Voter Registration</h2>
+        <form method="POST">
+            <label for="voter_id">Voter ID:</label>
+            <input type="text" name="voter_id" required pattern="[0-9]{5}" maxlength="5" title="Please enter a 5-digit Voter ID" required>
+            <button type="submit">Register</button>
+        </form>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <a href="/">Back to Voting</a>
+    </div>
+</body>
+</html>
